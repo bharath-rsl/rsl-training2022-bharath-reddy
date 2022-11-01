@@ -1,0 +1,127 @@
+1)
+set is a collection of unique values. Elements in set are unordered.
+
+We can create a set in 2 ways:
+a)var myset: set<int>=[1,2,3,4]
+this is a set which holds values of integer type.
+
+B)var myset=set([1,2,3,4])
+we don't need to provide the data type of set elements, we can use set() initializer and the compiler infers datatype of element automatically.
+
+Some important operations on set:
+
+a)checking if two sets are equal using the == operator.
+
+Two sets are equal if both sets have the same elements. == will return true if both sets have equal elements.
+Example:
+var set1: set<int> = [4, 1, 3, 2, 5]
+var set2: set<int> = [5, 4, 3, 6, 7]
+
+print(set1==set2) //output: true
+
+b)adding an element to a set using insert() function.
+Example:
+
+var set1: set<int> = [4, 1, 3, 2, 5]
+set1. Insert(100)
+print(set1) //output: [100,4,1,3,5,2]
+
+c)finding out size of set using count property
+example: .
+Var set1: set<int> = [4, 1, 3, 2, 5]
+print(set1. Count) //output:5
+
+d)remove element from the set using remove(element) function.
+Example: .
+Var set1: set<int> = [4, 1, 3, 2, 5]
+set1. Remove(4)
+print(set1) //output: [1,3,2,5]
+--------------------------------------------------------------------------------------------------------------------
+2)
+"..." Is range operator. It produces a sequence of values in a given range. There are 3 types of ranges. Closed range, half open range, one sided range.
+Closed range: (both lower and upper bound are included)
+var x=1...5
+for num in x{
+print(num)
+}
+o/p:1 2 3 4 5
+half open range: declared using .. < operator (upper bound is excluded)
+var x=1.. <5
+for num in x{
+print(num)}
+o/p: 1 2 3 4
+
+one sided range: we can create this range by leaving either upper bound or lower bound.
+Var x=1...
+Print(x. Contains(2))
+o/p: true
+------------------------------------------------------------------------------------------------------------------------------------------------------
+3)
+var string1="hi"
+var string2="hello"
+print((string1==""&&string2=="") ? "none": string1+" "+string2)
+
+o/p: hi hello
+
+var string1=""
+var string2=""
+print((string1==""&&string2=="") ? "none": string1+" "+string2)
+
+o/p: none
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+4)
+let elements = [6, 8, 1, 25, 65, 14 ,2, 1, 6, 6, 8]
+var ans: set<int>=[]
+for number in elements{
+if(ans. Contains(number)==false){
+print(number, terminator: " ")
+ans. Insert(number)
+}
+
+}
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+5)
+let elements = [6, 8, 1, 25, 65, 14 ,2]
+var odd: [int]=[]
+var even: [int]=[]
+for number in elements{
+switch number%2==0{
+case true: even. Append(number)
+default: odd. Append(number)
+}
+}
+
+print("odd numbers : ", even);
+print("even numbers: ", odd);
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+6)
+var elements = [6, 8, 1, 25, 65, 14 ,2]
+var x=1, y=2, z=4
+switch x
+{
+case 0: 
+var sum=0
+for index in y... Z
+{
+sum=sum+elements[index]
+}
+print(sum)
+case 1: 
+elements. Insert(z, at: y)
+print(elements)
+
+default: 
+print("do nothing")
+
+}
+------------------------------------------------------------------------------------------------------------------------------------
+7)
+let s="abbcccdddd"
+var dic: [character: int]=[: ]
+for char in s{
+dic[char, default:0]+=1
+}
+
+for (key, value) in dic{
+print("character \(key) appears \(value) times in the string")
+}
