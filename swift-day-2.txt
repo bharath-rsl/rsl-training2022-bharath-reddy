@@ -1,0 +1,135 @@
+1)
+   We can not implement inheritance using struct,whereas classes can inherit other classes.
+   Struct are value types,i.e when a struct variable is assigned to another struct variable,it creates a copy and is assigned.
+   Classes are reference types,copies are not created when assigned to another variable.
+   Typecasting is possible for classes and not possible for struct.
+   Struct have default memberwise initializers,whereas classes dont have and we have to explicitly create.
+--------------------------------------------------------------------------------------------------------------------------------------------------------   
+ 2)
+ func add(input:[Int])->(oddSum:Int,evenSum:Int){
+    var oddSum=0,evenSum=0
+    for num in input{
+        if(num%2==0){
+            evenSum+=num
+        }
+        else{
+            oddSum+=num
+        }
+    }
+    return(oddSum,evenSum)
+}
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+3)
+
+func sum(input:Any...)->String{
+    var result=0
+    for item in input{
+            switch item {
+            case is String:
+                    var value=String(describing:item)
+                    result=(value=="") ? result-10: (result+(Int(value) ?? 0))
+            case is Int:
+                    var value=String(describing:item)
+                    var intValue=Int(value)!
+                    result=(intValue==0) ? result-10:result+intValue
+            default:result=result+0
+        
+            }
+            
+    }
+    return(String(describing:result))
+}
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+4)
+func concate(s1:String="none",s2:String="none")->String{
+       if(s1=="none"&&s2=="none"){
+         return("none")
+       }
+       return(s1+s2+s3)
+}
+
+print(concate(s1:"hi",s2:"hello"))
+print(concate())
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+5)
+extension Array{
+
+  mutating func moveElementToBackFromIndex(index:Int){
+         let temp=self[index]
+         var i=index;
+         while(i<self.count-1){
+         self[i]=self[i+1]
+         i=i+1
+         }
+         self[i]=temp
+  }
+}
+var arr=[5,2,3,4]
+arr.moveElementToBackFromIndex(index:1)
+print(arr)
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+6)Access levels are used to set visibility of variables,classes,strutcs etc.
+There are different levels of access such as public,private,fileprivate,internal
+
+public:  No restriction and can be accessed from everywhere
+
+private: It can be accessed from inside the class or struct
+
+fileprivate: It is accessed within the file which it is declared.
+
+Internal: Internal access members can be accessed anywhere from the module.
+
+example:
+class StudentInfo {
+
+  // private property
+  private var name = "Bharath"
+  
+  //fileprivate
+  fileprivate var rollno=45
+  
+  //Internal
+  Internal var schoolName="abcde"
+  
+  // public method    
+  public func display() {
+    print("Hello from Student class")
+  }
+  
+  public getName()->String{
+     return(name)
+  }
+}
+var student=StudentInfo()
+
+print(student.name) // Error as name is private member
+
+print(student.getName()) // O/p:Bharath
+
+print(student.rollno) //O/p:45   same file,so no error
+
+print(student.schoolName) //O/p:abcde   same module,so no error
+ 
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+7)
+class Queue<T>{
+  private var data:[T]
+  init(){
+     data=[]
+  }
+  func enqueue(element:T){
+    data.append(element)
+  }
+  func size()->Int{
+    return(data.count)
+  }
+
+}
+var queue=Queue<Int>()
+queue.enqueue(element:6)
+queue.enqueue(element:5)
+print(queue.size())
