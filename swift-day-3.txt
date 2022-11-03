@@ -1,0 +1,146 @@
+1)
+There are 2 ways to declare functions inside class or struct i.e using 'class' and 'static' keyword.
+
+static func f1(){}
+class func f2(){}
+
+
+-Static functions can be invoked by the className itself.Object creation is not required.
+->static functions can not be inherited.
+class Vehicle{
+  static func drive(){
+  
+  }
+}
+we can access static function drive as Vehicle.drive()
+-Static functions can not be overridden like class functions.
+-In case of static functions,when we access any static function,entire class gets loaded into memory.
+
+-Class functions are not instance methods but can be invoked using className and can be overridden by subclasses 
+-Class functions also can be invoked without object creation
+class Vehicle{
+    class func drive(){
+        println("vehicle driving")
+    }
+}
+class Bike: Vehicle{
+    override class func drive(){
+        println("Bike Driving")
+    }
+}
+
+These class method can be called directly using classnames as Bike.drive() and Vehicle.drive()
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+2)
+func displayOrders(orders:[Menu]){
+  for order in orders{
+   switch order{
+       case let .Burger(patties):
+            print("burgers with \(patties) patties")
+       case let .Fries(size):
+            print("\(size) Fries")
+       case .Meal:
+            print("Meal")
+            print("Coke")
+       case .Coke:
+            print("Coke")
+   }
+  }
+}
+
+
+enum Size{
+  case Small
+  case Medium
+  case Large
+}
+
+enum Menu{
+  case Burger(noOfPatties:Int=1)
+  case Fries(size:Size)
+  case Meal
+  case Coke
+}
+
+var orders:[Menu]=[.Burger(),.Fries(size:Size.Small),.Meal,.Coke,
+                  .Burger(noOfPatties:2),.Fries(size:Size.Large)]
+displayOrders(orders:orders)
+
+o/p:
+burgers with 1 patties
+Small Fries
+Meal
+Coke
+Coke
+burgers with 2 patties
+Large Fries
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+3)
+struct Person{
+ let firstName:String?
+ let middleName:String?
+ let lastName:String?
+ let age:Int?
+
+ init(firstName:String?=nil,middleName:String?=nil,lastName:String?=nil,age:Int?=nil){
+      self.firstName=firstName
+      self.middleName=middleName
+      self.lastName=lastName
+      self.age=age
+ }
+
+}
+extension Person{
+   var fullName:String{
+          get{
+            return (firstName ?? "")+(middleName ?? "")+(lastName ?? "")
+          }
+   }
+
+
+}
+let bharath=Person(firstName:"bharath",middleName:"kumar",lastName:"reddy")
+print(bharath.fullName)      
+
+o/p:BharathKumarreddy
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+4)
+class Stack{
+  private var container:[Int]
+  init(){
+    container=[]
+  }
+  public func push(data:Int){
+    container.append(data)
+  }
+  public func pop()->Int? {
+    if(container.count==0){
+      return(nil)
+    }
+    var index=0
+    let poppedData=container[0]
+    while(index<container.count-1){
+      container[index]=container[index+1]
+      index=index+1
+    }
+    container.removeLast()
+    return(poppedData)
+
+  }
+}
+
+let stack=Stack()
+stack.push(data:4)
+stack.push(data:3)
+print(stack.pop() ?? "empty")
+print(stack.pop() ?? "empty")
+print(stack.pop() ?? "empty")
+
+
+o/p:
+3
+4
+empty
+
