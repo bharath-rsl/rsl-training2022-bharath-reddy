@@ -1,0 +1,231 @@
+1)
+#import <Foundation/Foundation.h>
+
+@interface SampleClass : NSObject
+- (NSInteger)findSum:(NSInteger)num1 addNum2:(NSInteger)num2;
+- (NSInteger)evenSum:(NSArray *)input;
+- (void)printHello;
+- (NSMutableArray *)interLeave:(NSArray *)array1 interleave:(NSArray *)array2;
+- (NSArray *)removeDuplicate:(NSArray *)array1;
+- (void)rotate:(NSMutableArray *)array;
+- (NSMutableDictionary *)countFrequencey:(NSString *)string;
+- (NSMutableDictionary *)mergeDict:(NSDictionary *)dict1 mergeWith:(NSDictionary *)dict2;
+
+@end
+
+@implementation SampleClass
+- (NSInteger)findSum:(NSInteger)num1 addNum2:(NSInteger)num2 {
+     return (num1 + num2);
+}
+- (NSInteger)evenSum:(NSArray *)input {
+     NSInteger sum = 0;
+     for (NSNumber *num in input) {
+          NSInteger temp = [num integerValue];
+          if (temp % 2 == 0) {
+               sum = sum + temp;
+          }
+     }
+     return (sum);
+}
+- (void)printHello {
+     enum DivisibleBy {
+
+          DivisibleBy3 = 1,
+          DivisibleBy5 = 2,
+          DivisibleBy3_5 = 6,
+
+     };
+     for (NSInteger i = 1; i <= 10; i++) {
+          enum DivisibleBy divisibleBy = 1 * (i % 3 == 0) + 2 * (i % 5 == 0) + 3 * (i % 3 == 0 && i % 5 == 0);
+          switch (divisibleBy) {
+               case DivisibleBy3_5:
+                    NSLog(@"Hello World");
+                    break;
+               case DivisibleBy3:
+                    NSLog(@"Hello");
+                    break;
+               case DivisibleBy5:
+                    NSLog(@"World");
+                    break;
+          }
+     }
+}
+- (NSMutableArray *)interLeave:(NSArray *)array1 interleave:(NSArray *)array2 {
+     NSMutableArray *outputArray = [NSMutableArray array];
+
+     for (NSInteger i = 0; i < [array1 count] || i < [array2 count]; i++) {
+          if (i < [array1 count]) {
+               [outputArray addObject:[array1 objectAtIndex:i]];
+          }
+          if (i < [array2 count]) {
+               [outputArray addObject:[array2 objectAtIndex:i]];
+          }
+     }
+
+     return (outputArray);
+}
+- (NSArray *)removeDuplicate:(NSArray *)array1 {
+     NSSet *set = [NSSet setWithArray:array1];
+     NSArray *outputArray = [set allObjects];
+
+     return (outputArray);
+}
+- (void)rotate:(NSMutableArray *)array {
+     NSString *lastChar = [array lastObject];
+     [array insertObject:lastChar atIndex:0];
+}
+- (NSMutableDictionary *)countFrequencey:(NSString *)string {
+     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+     for (NSInteger i = 0; i < string.length; i++) {
+          NSString *key = [NSString stringWithFormat:@"%c", [string characterAtIndex:i]];
+          NSNumber *value = [dict objectForKey:key];
+          if (value == NULL) {
+               [dict setObject:@1 forKey:key];
+          } else {
+               NSInteger temp = [value integerValue];
+               temp = temp + 1;
+               [dict setObject:@(temp) forKey:key];
+          }
+     }
+
+     return (dict);
+}
+- (NSMutableDictionary *)mergeDict:(NSDictionary *)dict1 mergeWith:(NSDictionary *)dict2 {
+     NSMutableDictionary *mergedDict = [NSMutableDictionary dictionary];
+     [mergedDict addEntriesFromDictionary:dict1];
+
+     for (NSString *key in dict2) {
+          NSNumber *value = [mergedDict objectForKey:key];
+          NSNumber *valueFromDict2 = [dict2 objectForKey:key];
+          if (value == NULL) {
+               [mergedDict setObject:valueFromDict2 forKey:key];
+          }
+     }
+     return (mergedDict);
+}
+@end
+
+int main(void) {
+     @autoreleasepool {
+          SampleClass *sampleClass = [[SampleClass alloc] init];
+
+          // Q-a
+          NSInteger num1 = 6, num2 = 7;
+          NSInteger ans = [sampleClass findSum:num1 addNum2:num2];
+          NSLog(@"sum of %ld and %ld is %ld", num1, num2, ans);
+
+          // Q-b
+          NSMutableArray *input = [NSMutableArray array];
+          for (NSInteger i = 0; i < 5; i++) {
+               [input addObject:[NSNumber numberWithInteger:i]];
+          }
+          ans = [sampleClass evenSum:input];
+          NSLog(@"Sum of all even numbers is %ld", ans);
+
+          // Q-c
+          [sampleClass printHello];
+
+          // Q-d
+          NSArray *array1 = @[ @1, @2, @3, @4, @5 ];
+          NSArray *array2 = @[ @6, @7, @8 ];
+          NSMutableArray *outputArray = [sampleClass interLeave:array1 interleave:array2];
+          NSLog(@"%@", outputArray);
+
+          // Q-e
+          NSArray *arrayWithDup = @[ @1, @1, @3, @3, @2, @4, @1, @5, @2 ];
+          NSArray *arrayWithOutDup = [sampleClass removeDuplicate:arrayWithDup];
+          NSLog(@"%@", arrayWithOutDup);
+
+          // Q-f
+          NSMutableArray *initialArray = [NSMutableArray arrayWithObjects:@"a", @"b", @"c", @"d", nil];
+          [sampleClass rotate:initialArray];
+          NSLog(@"Array after rotation: %@", initialArray);
+
+          // Q-g
+          NSString *string = @"abaccdaef";
+          NSMutableDictionary *dict = [sampleClass countFrequencey:string];
+          for (NSString *key in dict) {
+               NSLog(@"Character %@ appears  %@ times", key, [dict objectForKey:key]);
+          }
+          // Q-h
+          NSDictionary *dict1 = [NSDictionary dictionaryWithObjects:@[ @1, @2, @3 ] forKeys:@[ @"a", @"b", @"c" ]];
+          NSDictionary *dict2 = [NSDictionary dictionaryWithObjects:@[ @4, @5, @88 ] forKeys:@[ @"d", @"e", @"b" ]];
+          NSMutableDictionary *mergeDict = [sampleClass mergeDict:dict1 mergeWith:dict2];
+          NSLog(@"%@", mergeDict);
+     }
+     return 0;
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2)
+NSArray is collection of ordered objects and is immutable.
+Duplicates are allowed in NSArray.
+This can handle only object types and not primitive types.
+Membership checking is not optimal for NSArray.(takes O(n) time)
+
+NSSet can also hold a collection of objects but order is not maintained like NSArray.It is also immutable.
+NSSet can not hold duplicate elements.
+We can check if the set contains a specific object in optimal time.
+
+NSset usage demo:
+There are different ways to create a set.Below is one such way.
+
+NSSet *set = [NSSet setWithArray:@[@1,@1,@2,@2]];
+NSLog(@"%@",set);
+   
+OutPut: (1,2) ==>Duplicates are removed.
+
+3)
+isEqual() function is used to compare contents of two objects.
+'==' operator is used to check if both the variables are pointing to the same object.
+So, '==' works on values and 'isEqual' works on references
+
+One use case of when to use '==' for objects is to check for 'NULL'.Null checking is frequently used while programming,So '==' operator helps.
+
+Example to demonstrate the difference:
+
+     NSArray* array1=@[@1,@2,@3,@4];
+     NSArray* array2=@[@1,@2,@3,@4];
+    
+    if (array1 == array2) {
+        NSLog(@"==");
+    }
+   if ([array1 isEqual:array2]) {
+        NSLog(@"isequal");
+    }
+	
+Output:isequal
+
+
+
+
+    NSArray* array1=@[@1,@2,@3,@4];
+     NSArray* array2=array1;
+    if (array1 == array2) {
+        NSLog(@"==");
+    }
+   if ([array1 isEqual:array2]) {
+        NSLog(@"isequal");
+    }
+Output: ===
+        isequal        (since both are pointing to same array object)
+---------------------------------------------------------------------------------------------------------------------------------------------
+3)
+There are two choices for the compiler to identify the type of the object.
+One is statically,in which it identifies the class to which the object belongs to at compile time.So, it ensures type safety.
+But ,if we want flexibility more than type integrity ,dynamic typing gives us flexibility.
+we use 'id' data type to declare any object for which we don't know the type.
+
+	NSArray* array=@[@"bharath",@1];
+     
+     for (NSInteger index = 0; index < 2; index++) {
+        id object = [array objectAtIndex:index];
+        NSLog(@"Object at index %ld is %@", index, [object description]);
+    }
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+4)
+There are some classes in objective-c which do not derive from any classes.They are called root classes.
+One such class is NSObject class.
+This class has certain common properties which all objects must have like equality checking,memory allocation.
+Methods such as alloc which is for  memory allocation,'init' for initializing certain values.
