@@ -174,7 +174,7 @@ NSSet *set = [NSSet setWithArray:@[@1,@1,@2,@2]];
 NSLog(@"%@",set);
    
 OutPut: (1,2) ==>Duplicates are removed.
-
+------------------------------------------------------------------------------------------------------------------------------------------------------------
 3)
 isEqual() function is used to compare contents of two objects.
 '==' operator is used to check if both the variables are pointing to the same object.
@@ -210,7 +210,7 @@ Output:isequal
 Output: ===
         isequal        (since both are pointing to same array object)
 ---------------------------------------------------------------------------------------------------------------------------------------------
-3)
+4)
 There are two choices for the compiler to identify the type of the object.
 One is statically,in which it identifies the class to which the object belongs to at compile time.So, it ensures type safety.
 But ,if we want flexibility more than type integrity ,dynamic typing gives us flexibility.
@@ -224,7 +224,7 @@ we use 'id' data type to declare any object for which we don't know the type.
     }
 ------------------------------------------------------------------------------------------------------------------------------------------------
 
-4)
+5)
 There are some classes in objective-c which do not derive from any classes.They are called root classes.
 One such class is NSObject class.
 This class has certain common properties which all objects must have like equality checking,memory allocation.
