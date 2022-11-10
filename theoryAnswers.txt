@@ -1,0 +1,21 @@
+
+5)
+According to what i have read, accessing instant variables thourgh '.'(dot) operator is exaclty same as calling the
+corresponding getter and setter method.
+
+Let 'student' be a object with a instant variable "name".
+
+   student.name    <====> [student name]    (getter)
+   
+   student.name=@"bharath"   <====>  [student setName:@"bharath"]    (setter)
+   
+ Whenever we use "." operator,internally it transorms into usal get and set method call.
+
+ So,if we use '.' operator to access instant variables in getter or setter methods,it will go into infinite reccursive call.
+ 
+ 
+ -(void)name{                             -(void)name{
+    return(self.name);     <===>            return([self name]);          //infinite recursive call
+ 
+ }                                         }
+  
