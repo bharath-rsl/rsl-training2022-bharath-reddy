@@ -1,0 +1,62 @@
+1)categories can override a method.Overriding here is not polymorphism,but replacement of older methods.
+  Once a method is overridden by category,we can not access the older method.It is like writing a new definition to the method and completely
+  removing the old definition.It also affects the subclass as well.
+  
+  Example:let say you override a method which is in an NSObject class using a category...As NSObject class is inherited by many classes,it would definitely raise a problem.
+ ---------------------------------------------------------------------------------------------------------------------------------------------------
+2)
+Category is writing a new definition to the method.But inheritance is writing an alternate method.
+We can not access the older method in the category,but we can access the older method in subclass using the 'super' keyword.
+In other words category does not suport polymorphism,and inheritence supports.
+---------------------------------------------------------------------------------------------------------------------------------------------------
+3) Category used to extend a class by writing new methods,whereas extension allows the declaration of new methods and  instance variables ..
+  Methods declared in the class extension are implemented in the 'implementation' section of the class.
+  By using class extension we can make methods private.By private,i mean the methods are not advertised in the interface section,but 
+  are declared in class extension.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+4)
+NSString *(stringConcatinate)(NSString*,NSString*)=^NSString*(NSString* string1,NSString* string2){
+
+
+        NSMutableString * concatinatedString=[[NSMutableString alloc] init];
+		[concatinatedString appendString:string1];
+		[concatinatedString appendString:string2];
+		
+		return(concatinatedString);
+
+
+
+}
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+5)
+
+NSInteger (addition)(NSInteger,NSInteger)=^NSNumber(NSInteger operand1,NSInteger operand2){
+
+
+       
+		substraction(operand1,operand2);
+		return(operand1+operand2);
+
+
+
+}
+NSInteger (substraction)(NSInteger,NSInteger)=^NSInteger(NSInteger operand1,NSInteger operand2){
+
+
+       
+		printBlock(operand1-operand2);
+		return(operand1-operand2);
+
+
+
+}
+
+6)
+void (printBlock)(NSInteger)=^void(NSInteger value){
+
+        NSLog(@"d",value);
+}
+
+calling additionblock: addition(2,3);
