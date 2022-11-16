@@ -1,0 +1,135 @@
+
+1)
+a)AppLaunch:
+
+    When the user taps on the app,it goes to launch state(inactive state) then it goes to foreground active state
+    (app).
+     willFinishLaunchingWithOptions:
+    didFinishLaunchingWithOptions:
+
+   (scene based)
+    willConnecttoSession
+    configurationForConnectingSceneSession:options:
+
+b)Background:
+    first app deactivates,then moves to background.
+
+        (scene based)
+   sceneWillResignActive:
+sceneDidEnterBackground:
+ 
+         (app based)  
+  applicationWillResignActive:
+  applicationDidEnterBackground:
+
+c)Lock phone
+
+      it is same as app going into background
+        (scene based)
+   sceneWillResignActive:
+sceneDidEnterBackground:
+ 
+         (app based)  
+  applicationWillResignActive:
+  applicationDidEnterBackground:
+
+
+
+
+d)Simulate memory warning:
+   I think there is only one common method to or memory warning for both scene and app based.
+               applicationDidReceiveMemoryWarning:
+ 
+ 
+
+e)App Kill
+   It might depend on how the app gets killed.Usual way is press home button(which moves app to background)s and remove it from recent apps.
+   Then the same delegate methods that are called for background state are called again.
+   
+  (scene based)
+   sceneWillResignActive:
+sceneDidEnterBackground:
+ 
+         (app based)  
+  applicationWillResignActive:
+  applicationDidEnterBackground:
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+2)
+a)App Launch
+  viewdidload
+  viewwillAppear
+  viewDidappear
+
+b)Background
+    no methods called
+c)Phone lock
+    no methods called
+
+d)Simulate memory warning
+     didReceiveMemoryWarning
+
+
+e)App kill
+
+ viewWillDisappear
+ viewDidDisappear
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+3)
+viewWillTransitionToSize: method has 2 parameters: 1)(CGSize)size  2)(id<UIViewControllerTransitionCoordinator>)coordinator
+   
+'size' is a structure with height and width as instance properties.
+we can extract width and height from 'size' parameter.
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+4)
+ForeGround:
+
+ (scene)
+  willConnecttoSession
+ configurationForConnectingSceneSession:options:
+ willConnecttoSession
+ sceneWillEnterForeGround
+ sceneDidBecomeActive
+ 
+ (app)
+   willFinishLaunchingWithOptions:
+   didFinishLaunchingWithOptions:
+  applicationWillEnterForeground
+  ApplicationDidBecomeActive
+ 
+   viewdidload
+   viewWillAppear
+   viewDidAppear
+
+
+Background:
+  (scene based)
+   sceneWillResignActive:
+sceneDidEnterBackground:
+ 
+         (app based)  
+  applicationWillResignActive:
+  applicationDidEnterBackground:
+
+
+MemoryWarning:
+    (scene)
+     didReceiveMemoryWarning
+     (app)
+     applicationDidReceiveMemoryWarning
+
+AppKill:
+    Process:go to recent apps and swipeup.
+    It is the same as an app going to the background and removing it.
+   
+(scene based)
+     sceneWillResignActive:
+    sceneDidEnterBackground:
+ 
+         (app based)  
+     applicationWillResignActive:
+     applicationDidEnterBackground:
+ 
+      ViewControllerMethods
+     viewWillDisappear
+      viewDidDisappear
