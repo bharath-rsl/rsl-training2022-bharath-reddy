@@ -1,0 +1,45 @@
+
+1)
+UIWIndow acts as a cotainer for presenting the views.It is the topmost UI container for any ios application.
+It is the root view of the view hierarchy.
+It does not have any visible content,instead fecilitate other view controllers to present.
+Generally any ios application will have only one window object.
+
+ UIScene:
+It is a class that represents one instance of a application.
+Every scene has its own delegate object.
+When the state of the scene changes, the scene object notifies its delegate object and appropiate method is executed.
+Generally we never create UIScene object,uikit does it automatically.
+Every scene has a lifecycle with diferen states and each state has a associated delegate method.
+
+
+
+2.c)
+
+My observations on lifecycle events.
+
+viewDidLoad (this method is executed only once,when the viewcontroller is loaded for the first time)
+
+
+viewWillAppear (this method is eecuted just before the view appearing on the screen)
+
+
+These two methods are executed when viewcontroller about to layout the subviews and after laying out subviews.
+I have also observed that these methods are getting called when screen is rotated.
+viewWillLayoutSubviews
+viewDidLayoutSubviews
+viewWillTransitionToSize
+
+
+
+
+viewDidAppear (this method is executed just after the view appearing on the screen)
+
+
+These two methods are executed when the view is disappearing from the foreground.
+ViewwillDisappear
+ViewDIdDisappear
+
+
+d
+
