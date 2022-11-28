@@ -1,0 +1,30 @@
+3.a)
+ Reuse concept is used to utilize memory efficiently.
+ Generally memory is allocated or every cell created.If there are 1000 cells in the table,then 1000 cells are created.
+ But,users will be able to see atmax n number of cells at a time,memory allocation for remaining 1000-n cells is waste.
+ So,using reuse concept,only n cells are created and are reused for new cells when user scrolls down
+ 
+ 
+ 3.b)
+ 
+ UITableViewDelegate takes care of the methods that are related to layout of the table (height of rows,headers footers) and 
+ actions performed on the table by the user like selecting a row, editing,deleting a row.
+ 
+ UITableDataSource takes care of the methods related to data like data about no of rows,no of sections,content of the row.
+ 
+ 3.c)
+ UITableViewController is a special UIViewController whose view is a UITableView.
+ A UIViewController class manages a ViewController which is responsible for actions that happen within that View controller. 
+ 
+ Whereas, A UITableViewController is responsible for managing a table, it's data and its events using UITableViewDataSource, UITableViewDelegate.
+ A UITableViewController conforms to UIViewController, UITableViewDataSource and UITableViewDelegate to implement table view.
+ A UITableViewController subclasses UIViewController, hence it can implement the methods of a UIViewController.
+ UITableViewController  is used mostly if that ViewController does not have any other content except Table View.4
+ If the viewcontroller has other things other than tableview,then we can use uiviewCOntroller and conform to UITableDataSource and UITableViewDelegate protocols.
+ 
+ 
+ 
+
+ 3.d)
+ we can multiple UITableViews side by side in the same UITableController view class.
+ We can also use the same datasource and TableviewDelegates for all the table views.
