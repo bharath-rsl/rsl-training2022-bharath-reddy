@@ -1,0 +1,195 @@
+
+1)
+Counting the number of places where the object reference is used is called reference counting.
+When an object is created, the initial reference count is set to 1,Each time you need to ensure that the object be kept around, you effectively create a
+reference to it by incrementing its reference count by 1.
+
+Before Arc was introduced,programmers used 2 methods.
+a) automatic garbage collection:
+
+    With garbage collection, the system automatically determines which objects own which
+    other objects, automatically freeing up (or garbage-collecting) objects that are no longer referenced as space is needed during the program’s execution.
+ 
+b) manual reference counting:
+
+     If you do not want to depend on ARC (automatic reference counting),then you need to know how to deal with reference counts.
+     [object retain]  To increment  a reference count by 1.
+     [object release]  to decrement the reference count by 1.
+     When the reference count reaches 0,the system knows the object is no longer being used(not referenced anywhere),so it frees up memory
+     by sending the object  a dealloc message.
+
+
+
+Memory management using automatic reference counting:
+Arc was introduced in ios version 4.
+System determines when to retain an object,release or when to autorelease.Under the
+hood, reference counts are still being maintained and tracked.
+Programmers do not need to manually perform 'retain' and 'release' operations.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+2)
+Strong Variables,properties:
+
+---By default, all object pointer variables are strong variables. That means that assigning an object
+reference to such a variable causes that object to be automatically retained and the old
+object reference will be released before the assignment is made.
+---Strong variables are initialized to zero by default.
+
+Illustration:
+Student *c1 = [[Student alloc] init];
+Student *c2 = [[Student alloc] init];
+ [c1 setName:@"bb"];
+ [c2 setName:@"bb"];
+
+Now consider the below assignment using manual memory management.
+c2=c1
+
+the effect is to just copy the reference of object f1 into f2. The Student object
+referenced by c2 would be lost as a result, as its value is overwritten. This creates a
+ memory leak  (a variable that is no longer referenced and therefore can’t be released).
+If you’re using ARC, c1 and c2 are both strong variables. So, the previous assignment actually
+works like this:
+ [c1 retain]; // retain new value
+ [c2 release]; // release the old value
+ c2 = c1; // copy the reference
+ --The above steps are done by the compiler automatically.
+-Properties that we write inside a class are not Strong by default.We have to declare them explicitly.
+example: @property(strong) NSMutableArray *employeList
+
+Weak variables:
+-Weak variables come into usage when there is a retain cycle.Retain cycle is created when two objects have reference to each other.
+When a parent class holds a reference to a subclass and subclass holds a reference to parent class,a cycle is created and these objects can
+never be destroyed.So,we need to make another type of reference known as weak reference between two objects.
+--A weak variable does not prevent deallocation of the object it references.
+Syntac: @property (weak) NSMutableArray *employeList;
+
+--weak variables are not supported in iOS 4 or Mac OS X 10.6. In such cases, you can
+still use the unsafe_unretained (or assign) property attribute or declare your variable to be __unsafe_unretained.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+3)
+When we declare a property 'weak' ,it does not prevent deallocation of the object it references in case of retain cycle.
+
+When you declare a weak variable , the system tracks the reference that is made on assignment to that variable,and when that referenced object gets deallocated,
+the weak variable gets automatically set to nil. That prevents any crashes that might occur by  sending a message to that variable. Because the variable
+will be set to nil ,sending a message to a nil object does nothing, thus preventing a crash.
+
+To declare a weak variable, you use the __weak keyword:
+__weak NSString *name;
+or you use the weak attribute for a property:
+ @property (weak) NSString *name;
+ 
+weak variables are not supported in iOS 4 or Mac OS X 10.6. In such cases, you can
+still use the unsafe_unretained (or assign) property attribute or declare your variable to be
+__unsafe_unretained.
+--Note that these variables are not zeroed automatically when the referenced object is deallocated. So,there is danger of crashing the app,when messages
+is passed to a object which is deallocated.
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+4)
+Consider two objects A and B where A creates and retains B. When A is created, it creates B. 
+When whoever created A finally releases it, A's retain count drops to zero and it gets deallocated. 
+If A's dealloc method calls release on B, B's retain count also drops to zero and it also gets deallocated.
+
+But what happens if B needs a reference back to A, and it retains A? Whoever created A might release it. 
+But since B has also retained A, A's retain count won't go to zero. Likewise, since A retains B, B's retain count also won't go to zero. 
+Neither will be deallocated. It formed a cycle now,Even if B calls A's release method in its own dealloc it doesn't matter, because that method is never 
+going to be called.
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+5)Based on the explanation,i gave for retain cycle in the above question,i have illustrated a program.
+I have made object A and Object B hold together strongly.
+
+#import <Foundation/Foundation.h>
+@class B;
+
+@interface A:NSObject
+{
+B * bReference;
+}
+@property (strong,nonatomic)B * bReference;
+
+@end
+
+@implementation A
+@synthesize bReference;
+-(void)dealloc{
+    NSLog(@"dealloc A");
+}
+
+@end
+@interface B: NSObject
+{
+A * aReference;
+
+}
+@property (strong,nonatomic)A * aReference;
+@end
+
+@implementation B
+@synthesize aReference;
+-(void)dealloc{
+    NSLog(@"dealloc B");
+}
+@end
+int main(void){
+    NSAutoreleasePool* pool = [[NSAutoreleasePool alloc] init];
+   
+ A * a = [[A alloc] init];
+    B * b = [[B alloc] init];
+    a.bReference = b;
+    b.aReference = a;   
+    
+   
+   
+   
+    [pool release];
+    return 0;
+}
+
+
+O/p:We do not see any "dealloc B" or "dealloc A" log in the output due to retain cycle(dealloc() is not called by either object)
+--------------------------------------------------------------------------------------------------------------------------------------------------
+6)
+
+Some frequently used property qualifiers are
+   a)atomic
+   b)non atomic
+   c)copy
+   d)assign
+   
+ atomic:
+  There is something called multithreading where different threads access the data item at the same time.
+  atomic specifier ensures that the dataitem (property) is thread safe.
+  For the property to be thread safe concepts like synchronization,locking ,unlocking comes into picture,so atomic properties have some
+  performance issues.
+  Default specifier of a property is atomic.
+  
+  Non-atomic:
+  There is no guarantee of the correctness of the final value of the property in a multi threaded environment.
+  Multiple threads write on the data item at same time and the final output may be right or wrong.
+  Since,there are no synchronization mechanisms involved,non-atomic properties have high performance.
+  
+  Copy:
+  The copy option makes a copy of an object and then changes the pointer to refer to this copy.
+   Suppose there is a property : @property(copy) NSString * lastName;
+
+   
+  The generated setter method would look somewhat like this:
+   - (void)setLastName:(NSString *)s
+     {
+        lastName = [s copy];
+      }
+  
+  Copy specifier is used mostly for object types that have mutable subclasses.
+   The copy method returns an immutable string (NSString).This is very useful for string objects because a new copy is created and this is not changed while we are using it.
+  
+  
+  
+  assign:
+  This specifier is also related to setter-method like 'copy'.In the setter method,	there will be a simple assignment unlike the 'copy' specifier where the copy method is called.It is best suitable for primitive types.
+  This specifier is not suitable for object types,because object retain count is not increased and string could be
+  deallocated while we are still using the object.
+  
+  
