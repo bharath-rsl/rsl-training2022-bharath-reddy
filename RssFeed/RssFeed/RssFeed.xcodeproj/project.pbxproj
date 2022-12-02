@@ -1,0 +1,406 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9A31B057293902B40055595A /* img4.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A31B056293902B30055595A /* img4.png */; };
+		9A5D6E3E2937105F0078F6FC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5D6E3D2937105F0078F6FC /* AppDelegate.m */; };
+		9A5D6E412937105F0078F6FC /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5D6E402937105F0078F6FC /* SceneDelegate.m */; };
+		9A5D6E442937105F0078F6FC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5D6E432937105F0078F6FC /* ViewController.m */; };
+		9A5D6E472937105F0078F6FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A5D6E452937105F0078F6FC /* Main.storyboard */; };
+		9A5D6E49293710630078F6FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A5D6E48293710630078F6FC /* Assets.xcassets */; };
+		9A5D6E4C293710630078F6FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A5D6E4A293710630078F6FC /* LaunchScreen.storyboard */; };
+		9A5D6E4F293710630078F6FC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5D6E4E293710630078F6FC /* main.m */; };
+		9A5D6E5729371FAE0078F6FC /* RssUrlDataModal.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5D6E5629371FAE0078F6FC /* RssUrlDataModal.m */; };
+		9A5D6E5A293720C60078F6FC /* RssUrlViewCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5D6E59293720C60078F6FC /* RssUrlViewCellTableViewCell.m */; };
+		9A5D6E5D293722F20078F6FC /* RssDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5D6E5C293722F20078F6FC /* RssDataSource.m */; };
+		9A5D6E60293727500078F6FC /* RssTableViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5D6E5F293727500078F6FC /* RssTableViewDelegate.m */; };
+		9A5D6E632937D1E10078F6FC /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5D6E622937D1E10078F6FC /* ListViewController.m */; };
+		9A5D6E66293867810078F6FC /* FeedWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5D6E65293867810078F6FC /* FeedWebViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		9A31B056293902B30055595A /* img4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = img4.png; path = ../../../../Downloads/img4.png; sourceTree = "<group>"; };
+		9A5D6E392937105F0078F6FC /* RssFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RssFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A5D6E3C2937105F0078F6FC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		9A5D6E3D2937105F0078F6FC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		9A5D6E3F2937105F0078F6FC /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
+		9A5D6E402937105F0078F6FC /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
+		9A5D6E422937105F0078F6FC /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		9A5D6E432937105F0078F6FC /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		9A5D6E462937105F0078F6FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9A5D6E48293710630078F6FC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9A5D6E4B293710630078F6FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9A5D6E4D293710630078F6FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9A5D6E4E293710630078F6FC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		9A5D6E5529371FAE0078F6FC /* RssUrlDataModal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RssUrlDataModal.h; sourceTree = "<group>"; };
+		9A5D6E5629371FAE0078F6FC /* RssUrlDataModal.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RssUrlDataModal.m; sourceTree = "<group>"; };
+		9A5D6E58293720C60078F6FC /* RssUrlViewCellTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RssUrlViewCellTableViewCell.h; sourceTree = "<group>"; };
+		9A5D6E59293720C60078F6FC /* RssUrlViewCellTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RssUrlViewCellTableViewCell.m; sourceTree = "<group>"; };
+		9A5D6E5B293722F20078F6FC /* RssDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RssDataSource.h; sourceTree = "<group>"; };
+		9A5D6E5C293722F20078F6FC /* RssDataSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RssDataSource.m; sourceTree = "<group>"; };
+		9A5D6E5E293727500078F6FC /* RssTableViewDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RssTableViewDelegate.h; sourceTree = "<group>"; };
+		9A5D6E5F293727500078F6FC /* RssTableViewDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RssTableViewDelegate.m; sourceTree = "<group>"; };
+		9A5D6E612937D1E10078F6FC /* ListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
+		9A5D6E622937D1E10078F6FC /* ListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ListViewController.m; sourceTree = "<group>"; };
+		9A5D6E64293867810078F6FC /* FeedWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeedWebViewController.h; sourceTree = "<group>"; };
+		9A5D6E65293867810078F6FC /* FeedWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FeedWebViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9A5D6E362937105F0078F6FC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9A5D6E302937105F0078F6FC = {
+			isa = PBXGroup;
+			children = (
+				9A5D6E3B2937105F0078F6FC /* RssFeed */,
+				9A5D6E3A2937105F0078F6FC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9A5D6E3A2937105F0078F6FC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9A5D6E392937105F0078F6FC /* RssFeed.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9A5D6E3B2937105F0078F6FC /* RssFeed */ = {
+			isa = PBXGroup;
+			children = (
+				9A31B056293902B30055595A /* img4.png */,
+				9A5D6E3C2937105F0078F6FC /* AppDelegate.h */,
+				9A5D6E3D2937105F0078F6FC /* AppDelegate.m */,
+				9A5D6E3F2937105F0078F6FC /* SceneDelegate.h */,
+				9A5D6E402937105F0078F6FC /* SceneDelegate.m */,
+				9A5D6E422937105F0078F6FC /* ViewController.h */,
+				9A5D6E432937105F0078F6FC /* ViewController.m */,
+				9A5D6E452937105F0078F6FC /* Main.storyboard */,
+				9A5D6E48293710630078F6FC /* Assets.xcassets */,
+				9A5D6E4A293710630078F6FC /* LaunchScreen.storyboard */,
+				9A5D6E4D293710630078F6FC /* Info.plist */,
+				9A5D6E4E293710630078F6FC /* main.m */,
+				9A5D6E5529371FAE0078F6FC /* RssUrlDataModal.h */,
+				9A5D6E5629371FAE0078F6FC /* RssUrlDataModal.m */,
+				9A5D6E58293720C60078F6FC /* RssUrlViewCellTableViewCell.h */,
+				9A5D6E59293720C60078F6FC /* RssUrlViewCellTableViewCell.m */,
+				9A5D6E5B293722F20078F6FC /* RssDataSource.h */,
+				9A5D6E5C293722F20078F6FC /* RssDataSource.m */,
+				9A5D6E5E293727500078F6FC /* RssTableViewDelegate.h */,
+				9A5D6E5F293727500078F6FC /* RssTableViewDelegate.m */,
+				9A5D6E612937D1E10078F6FC /* ListViewController.h */,
+				9A5D6E622937D1E10078F6FC /* ListViewController.m */,
+				9A5D6E64293867810078F6FC /* FeedWebViewController.h */,
+				9A5D6E65293867810078F6FC /* FeedWebViewController.m */,
+			);
+			path = RssFeed;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9A5D6E382937105F0078F6FC /* RssFeed */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9A5D6E52293710630078F6FC /* Build configuration list for PBXNativeTarget "RssFeed" */;
+			buildPhases = (
+				9A5D6E352937105F0078F6FC /* Sources */,
+				9A5D6E362937105F0078F6FC /* Frameworks */,
+				9A5D6E372937105F0078F6FC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RssFeed;
+			productName = RssFeed;
+			productReference = 9A5D6E392937105F0078F6FC /* RssFeed.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9A5D6E312937105F0078F6FC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 1300;
+				TargetAttributes = {
+					9A5D6E382937105F0078F6FC = {
+						CreatedOnToolsVersion = 13.0;
+					};
+				};
+			};
+			buildConfigurationList = 9A5D6E342937105F0078F6FC /* Build configuration list for PBXProject "RssFeed" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9A5D6E302937105F0078F6FC;
+			productRefGroup = 9A5D6E3A2937105F0078F6FC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9A5D6E382937105F0078F6FC /* RssFeed */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9A5D6E372937105F0078F6FC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9A31B057293902B40055595A /* img4.png in Resources */,
+				9A5D6E4C293710630078F6FC /* LaunchScreen.storyboard in Resources */,
+				9A5D6E49293710630078F6FC /* Assets.xcassets in Resources */,
+				9A5D6E472937105F0078F6FC /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9A5D6E352937105F0078F6FC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9A5D6E5D293722F20078F6FC /* RssDataSource.m in Sources */,
+				9A5D6E442937105F0078F6FC /* ViewController.m in Sources */,
+				9A5D6E632937D1E10078F6FC /* ListViewController.m in Sources */,
+				9A5D6E5A293720C60078F6FC /* RssUrlViewCellTableViewCell.m in Sources */,
+				9A5D6E3E2937105F0078F6FC /* AppDelegate.m in Sources */,
+				9A5D6E4F293710630078F6FC /* main.m in Sources */,
+				9A5D6E5729371FAE0078F6FC /* RssUrlDataModal.m in Sources */,
+				9A5D6E412937105F0078F6FC /* SceneDelegate.m in Sources */,
+				9A5D6E60293727500078F6FC /* RssTableViewDelegate.m in Sources */,
+				9A5D6E66293867810078F6FC /* FeedWebViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		9A5D6E452937105F0078F6FC /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9A5D6E462937105F0078F6FC /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		9A5D6E4A293710630078F6FC /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9A5D6E4B293710630078F6FC /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9A5D6E50293710630078F6FC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		9A5D6E51293710630078F6FC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9A5D6E53293710630078F6FC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = RssFeed/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rajasoftware.bharath.RssFeed;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9A5D6E54293710630078F6FC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = RssFeed/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rajasoftware.bharath.RssFeed;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9A5D6E342937105F0078F6FC /* Build configuration list for PBXProject "RssFeed" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9A5D6E50293710630078F6FC /* Debug */,
+				9A5D6E51293710630078F6FC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9A5D6E52293710630078F6FC /* Build configuration list for PBXNativeTarget "RssFeed" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9A5D6E53293710630078F6FC /* Debug */,
+				9A5D6E54293710630078F6FC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9A5D6E312937105F0078F6FC /* Project object */;
+}
